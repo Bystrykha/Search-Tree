@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Asus/CLionProjects/SearchTree/Node.h
+iostream
+-
+
+C:/Users/Asus/CLionProjects/SearchTree/Tree.h
+iostream
+-
+Node.h
+C:/Users/Asus/CLionProjects/SearchTree/Node.h
+
+C:/Users/Asus/CLionProjects/SearchTree/main.cpp
+iostream
+-
+Tree.h
+C:/Users/Asus/CLionProjects/SearchTree/Tree.h
+
