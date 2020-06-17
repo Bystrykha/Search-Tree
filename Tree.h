@@ -12,7 +12,7 @@ public:
     Tree(Tree &Tree);
     ~Tree();
     void AddNode(int key);
-    Tree &operator = (const Tree &Tree); //???
+    Tree &operator = (const Tree &Tree);
     int SearchMax();
     int SearchMin();
     Node* DeleteTree(int value);
