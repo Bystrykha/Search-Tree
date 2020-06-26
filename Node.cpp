@@ -16,10 +16,8 @@ Node(int *mass, int n) {    /// конструктор, принимает ма�
         }
     }
 
-
-
 void Node::AddNode(int value) {     /// добавление узла в дерево
-    if (value < this->key) {    /// если ключ добавляемого узла больше чем ключ текущего
+    if (value < this->key) {    /// если ключ узла меньше текущего
         if (this->left_child == nullptr){   /// добавляем узел
             Node *node = new Node();
             node->key = value;
@@ -31,7 +29,7 @@ void Node::AddNode(int value) {     /// добавление узла в дер�
             this->left_child->AddNode(value);
         }
     }
-    else if (value > this->key) {   /// то же самое, только ключ узла меньше текущего
+    else if (value > this->key) {   /// то же самое, только ключ добавляемого узла больше чем ключ текущего
         if (this->right_child == nullptr) {
             Node *node = new Node();
             node->key = value;
@@ -164,7 +162,7 @@ Node *Node::DeleteNode(int value) {     /// удаление узла дерев
 Node *Node::Delete_var_1() {    ///правый потомок узла - удаляемый узел
     Node *del_node = this->right_child, *sun = nullptr, *father = nullptr;
     if (del_node->left_child != nullptr) {  /// если поддерево состоит не только из удаляемого узла
-        sun = del_node->left_child; /// находим максимальный элемент в левом поддереве и ставим его на место удаляемого узля
+        sun = del_node->left_child; /// находим максимальный элемент в левом поддереве и ставим его на место удаляемого узла
         while (sun->right_child != nullptr) {
             father = sun;
             sun = sun->right_child;
@@ -173,18 +171,30 @@ Node *Node::Delete_var_1() {    ///правый потомок узла - уда
             father->right_child = sun->left_child;
             sun->right_child = del_node->right_child;
             sun->left_child = del_node->left_child;
+            del_node->left_child = nullptr; /// отчистка памяти
+            del_node->right_child = nullptr;
+            delete(del_node);
             this->right_child = sun;
         }
         else {
             sun->right_child = del_node->right_child;
+            del_node->left_child = nullptr; /// отчистка памяти
+            del_node->right_child = nullptr;
+            delete(del_node);
             this->left_child = sun;
         }
     }
     else if (del_node->right_child != nullptr) {
         this->right_child = del_node->right_child;
+        del_node->left_child = nullptr; /// отчистка памяти
+        del_node->right_child = nullptr;
+        delete(del_node);
     }
-    else {  /// если у удаляемого узла нет девого поддерева
+    else {  /// если у удаляемого узла нет левого поддерева
         this->right_child = nullptr;
+        del_node->left_child = nullptr; /// отчистка памяти
+        del_node->right_child = nullptr;
+        delete(del_node);
     }
     return this;
 }
@@ -201,15 +211,24 @@ Node *Node::Delete_var_2() {    /// аналогичео Delete_var_1()
             father->right_child = sun->left_child;
             sun->right_child = del_node->right_child;
             sun->left_child = del_node->left_child;
+            del_node->left_child = nullptr; /// отчистка памяти
+            del_node->right_child = nullptr;
+            delete(del_node);
             this->left_child = sun;
         }
         else {
             sun->right_child = del_node->right_child;
+            del_node->left_child = nullptr; /// отчистка памяти
+            del_node->right_child = nullptr;
+            delete(del_node);
             this->left_child = sun;
         }
     }
     else if (del_node->right_child != nullptr) {
         this->left_child = del_node->right_child;
+        del_node->left_child = nullptr; /// отчистка памяти
+        del_node->right_child = nullptr;
+        delete(del_node);
     }
     else this->left_child = nullptr;
     return this;

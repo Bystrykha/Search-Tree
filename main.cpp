@@ -21,8 +21,8 @@ int main() {
     MyTree.TreeTraversal();
     cout << endl;
     cout <<"SearchMin = " << MyTree.SearchMin() << endl;
-    MyTree.DeleteTree(90);
-    cout << "DeleteTree(89): ";
+    MyTree.DeleteTree(200);
+    cout << "DeleteTree(25): ";
     MyTree.TreeTraversal();
     cout << endl;
     cout <<"TreeSearch(25) = " << MyTree.TreeSearch(25) << endl;
@@ -31,8 +31,8 @@ int main() {
     cout << "Height = " << MyTree.Height() << endl;
     cout << "LayersTraversal: ";
     MyTree.LayersTraversal();
+    cout << endl << "GOOOO:" << endl;
+    MyTree.PrintV();
+
     return 0;
 }
-
-
-

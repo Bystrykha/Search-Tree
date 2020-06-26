@@ -5,6 +5,7 @@ using namespace std;
 
 class Tree{
     Node *root;
+    static void PrintV(Node *p, int l);
 
 public:
     Tree();
@@ -22,4 +23,5 @@ public:
     bool BalanceCheck();
     int Height();
     void LayersTraversal();
+    void PrintV();
 };

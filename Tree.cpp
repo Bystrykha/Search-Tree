@@ -58,7 +58,7 @@ int Tree::SearchMin() {     /// поиск узла с минимальным з
 
 Node* Tree::DeleteTree(int value) {
     if(root->key == value){     /// если удаляем корень всего дерева
-        if(root->right_child != nullptr && root->left_child != nullptr){    ///если есть правое и левое поддеревья, на место корня ставим наибольший элемент левого поддерева
+        if(root->right_child != nullptr && root->left_child != nullptr){    ///если есть правое и левое поддеревья, на место корня ставим наименьший элемент правого поддерева
             Node *father, *sun;
             father = root;
             sun = father->right_child;
@@ -70,18 +70,37 @@ Node* Tree::DeleteTree(int value) {
                 father->left_child = sun->right_child;
                 sun->left_child = root->left_child;
                 sun->right_child = root->right_child;
+                root->left_child = nullptr;         /// отчистка памяти
+                root->right_child = nullptr;
+                delete(root);
                 root = sun;
-                root->TreeTraversal();
             }
-            if(father == root){     /// если левое поддерево состоит из одного узла
+            if(father == root){     /// если правое поддерево состоит из одного узла
                 sun->left_child = root->left_child;    /// без этого условия получалость, что новый корень содержал ссылку на самого себя в left_child
                 sun->right_child = nullptr;
+                root->left_child = nullptr;         /// отчистка памяти
+                root->right_child = nullptr;
+                delete(root);
                 root = sun;
             }
         }
-        if(root->right_child == nullptr && root->left_child != nullptr)root = root->left_child; /// если нет правого поддерева, то просто обозначаем за корень правый узел
-        if(root->left_child == nullptr && root->right_child != nullptr)root = root->right_child; /// аналогично верхнему
-        if(root->right_child == nullptr && root->left_child == nullptr)root = nullptr; /// если у корня нет потомков, просто удаляем его
+        else if(root->right_child == nullptr && root->left_child != nullptr){    /// если нет правого поддерева, то просто обозначаем за корень правый узел
+            Node *sun;
+            sun = root->left_child;
+            root->left_child = nullptr;         /// отчистка памяти
+            delete(root);
+            root = sun;
+        }
+        else if(root->left_child == nullptr && root->right_child != nullptr){    /// аналогично верхнему
+            Node *sun;
+            sun = root->right_child;
+            root->right_child = nullptr;         /// отчистка памяти
+            delete(root);
+            root = sun;
+        }
+        else if(root->right_child == nullptr && root->left_child == nullptr){/// если у корня нет потомков, просто удаляем его
+            root = nullptr;
+        }
         return root;
     }
     else return root->DeleteNode(value);    /// если удаляемый узел не является корнем всего дерева
@@ -123,4 +142,17 @@ void Tree::LayersTraversal() {      /// обход дерева по слоям
         cout << layers.front()->key << " ";
         layers.pop();
     }
+}
+
+void Tree::PrintV(Node *p, int l) {
+    if (p == nullptr) return;
+    PrintV(p->right_child, l + 3);
+    for(int k = 0; k < l; k++) cout << " ";
+    cout.width(2);
+    cout << p->key << endl;
+    PrintV(p->left_child, l + 3);
+}
+
+void Tree::PrintV() {
+    PrintV(root, 0);
 }
