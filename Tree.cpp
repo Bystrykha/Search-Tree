@@ -66,7 +66,7 @@ Node* Tree::DeleteTree(int value) {
                 father = sun;
                 sun = sun->left_child;
             }
-            if(father != root) {        /// если левое поддерево состоит более, чем из одного узла
+            if(father != root) {        /// если правое поддерево состоит более, чем из одного узла
                 father->left_child = sun->right_child;
                 sun->left_child = root->left_child;
                 sun->right_child = root->right_child;
@@ -75,9 +75,8 @@ Node* Tree::DeleteTree(int value) {
                 delete(root);
                 root = sun;
             }
-            if(father == root){     /// если правое поддерево состоит из одного узла
+            if(father == root){     /// если правое поддерево не имеет в себе левого поддерева
                 sun->left_child = root->left_child;    /// без этого условия получалость, что новый корень содержал ссылку на самого себя в left_child
-                sun->right_child = nullptr;
                 root->left_child = nullptr;         /// отчистка памяти
                 root->right_child = nullptr;
                 delete(root);

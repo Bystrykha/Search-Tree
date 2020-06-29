@@ -118,8 +118,20 @@ Node *Node::FatherFind(int value) {     /// нахожение отца узла
     son = this;
     while(son->key != value) {  /// ищем узел по ключу, записывая в father его предка
         father = son;
-        if(son->key > value)son = son->left_child;
-        if(son->key < value)son = son->right_child;
+        if(son->key > value){
+            if(son->left_child == nullptr) {
+                cout << "This tree doesn't contain this node" << endl;
+                return nullptr;
+            }
+            son = son->left_child;
+        }
+        if(son->key < value){
+            if(son->right_child == nullptr){
+                cout << "This tree doesn't contain this node" << endl;
+                return nullptr;
+            }
+            son = son->right_child;
+        }
         if(son->key == value) return father;
     }
 }
