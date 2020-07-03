@@ -6,25 +6,19 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Asus/CLionProjects/SearchTree/BalanceTree.cpp
+BalanceTree.h
+C:/Users/Asus/CLionProjects/SearchTree/BalanceTree.h
+
+C:/Users/Asus/CLionProjects/SearchTree/BalanceTree.h
+Tree.h
+C:/Users/Asus/CLionProjects/SearchTree/Tree.h
+
 C:/Users/Asus/CLionProjects/SearchTree/Node.h
 iostream
 -
 
-C:/Users/Asus/CLionProjects/SearchTree/Tree.cpp
-Tree.h
 C:/Users/Asus/CLionProjects/SearchTree/Tree.h
-queue
--
-
-C:/Users/Asus/CLionProjects/SearchTree/Tree.h
-iostream
--
 Node.h
 C:/Users/Asus/CLionProjects/SearchTree/Node.h
-
-C:/Users/Asus/CLionProjects/SearchTree/main.cpp
-iostream
--
-Tree.h
-C:/Users/Asus/CLionProjects/SearchTree/Tree.h
 

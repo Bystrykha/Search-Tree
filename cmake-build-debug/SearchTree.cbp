@@ -80,6 +80,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Asus/CLionProjects/SearchTree/Balance.h">
+			<Option target="SearchTree"/>
+		</Unit>
+		<Unit filename="C:/Users/Asus/CLionProjects/SearchTree/BalanceTree.cpp">
+			<Option target="SearchTree"/>
+		</Unit>
+		<Unit filename="C:/Users/Asus/CLionProjects/SearchTree/BalanceTree.h">
+			<Option target="SearchTree"/>
+		</Unit>
 		<Unit filename="C:/Users/Asus/CLionProjects/SearchTree/Node.cpp">
 			<Option target="SearchTree"/>
 		</Unit>

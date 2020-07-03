@@ -1,12 +1,13 @@
-#include <iostream>
+//#include <iostream>
 #include "Node.h"
 
 using namespace std;
 
 class Tree{
-    Node *root;
     static void PrintV(Node *p, int l);
 
+protected:
+    Node *root;
 public:
     Tree();
     Tree(int *mass, int n);

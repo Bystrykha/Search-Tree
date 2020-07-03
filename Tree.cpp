@@ -1,5 +1,9 @@
+///сб 8:45 пр Мира 31 .зайти в контору на кирва, оповестить об уезде
+
+
 #include "Tree.h"
 #include <queue>
+
 
 Tree::Tree() {      /// конструктор без аргументов
     root = nullptr;
@@ -34,6 +38,7 @@ void Tree::AddNode(int value) {     /// добавление узла в дер�
     }
 }
 
+
 Tree &Tree::operator=(const Tree &tree) {   ///
     if (tree.root == nullptr) {
         root = nullptr;
@@ -62,7 +67,7 @@ Node* Tree::DeleteTree(int value) {
             Node *father, *sun;
             father = root;
             sun = father->right_child;
-            while(sun->left_child != nullptr){      /// поиск наибольшего узла поддерева
+            while(sun->left_child != nullptr){      /// поиск наименьшего узла поддерева
                 father = sun;
                 sun = sun->left_child;
             }

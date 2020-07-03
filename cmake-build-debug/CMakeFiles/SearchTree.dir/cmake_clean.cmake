@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SearchTree.dir/BalanceTree.cpp.obj"
   "CMakeFiles/SearchTree.dir/Node.cpp.obj"
   "CMakeFiles/SearchTree.dir/Tree.cpp.obj"
   "CMakeFiles/SearchTree.dir/main.cpp.obj"

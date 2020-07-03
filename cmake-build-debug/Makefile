@@ -122,6 +122,33 @@ SearchTree/fast:
 	$(MAKE) -f CMakeFiles\SearchTree.dir\build.make CMakeFiles/SearchTree.dir/build
 .PHONY : SearchTree/fast
 
+BalanceTree.obj: BalanceTree.cpp.obj
+
+.PHONY : BalanceTree.obj
+
+# target to build an object file
+BalanceTree.cpp.obj:
+	$(MAKE) -f CMakeFiles\SearchTree.dir\build.make CMakeFiles/SearchTree.dir/BalanceTree.cpp.obj
+.PHONY : BalanceTree.cpp.obj
+
+BalanceTree.i: BalanceTree.cpp.i
+
+.PHONY : BalanceTree.i
+
+# target to preprocess a source file
+BalanceTree.cpp.i:
+	$(MAKE) -f CMakeFiles\SearchTree.dir\build.make CMakeFiles/SearchTree.dir/BalanceTree.cpp.i
+.PHONY : BalanceTree.cpp.i
+
+BalanceTree.s: BalanceTree.cpp.s
+
+.PHONY : BalanceTree.s
+
+# target to generate assembly for a file
+BalanceTree.cpp.s:
+	$(MAKE) -f CMakeFiles\SearchTree.dir\build.make CMakeFiles/SearchTree.dir/BalanceTree.cpp.s
+.PHONY : BalanceTree.cpp.s
+
 Node.obj: Node.cpp.obj
 
 .PHONY : Node.obj
@@ -212,6 +239,9 @@ help:
 	@echo ... SearchTree
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... BalanceTree.obj
+	@echo ... BalanceTree.i
+	@echo ... BalanceTree.s
 	@echo ... Node.obj
 	@echo ... Node.i
 	@echo ... Node.s

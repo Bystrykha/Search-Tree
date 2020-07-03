@@ -1,7 +1,7 @@
 #include "Node.h"
 
-Node::Node() {  ///конструктор без аргументов
-    key = NULL;
+Node::Node(int k) {  ///конструктор без аргументов
+    key = k;
     right_child = nullptr;
     left_child = nullptr;
 }
@@ -75,7 +75,6 @@ int Node::SearchMax() {     /// нахождение узла с максима�
 }
 
 Node *Node::NodeSearch(int value) {     /// поиск узла по ключу
-    cout << "p1" << endl;
     Node* node;
     node = this;
     if(value > node->key && node->right_child != nullptr) { /// если колч искомого узла больше текущего и нам есть где искать
@@ -89,7 +88,6 @@ Node *Node::NodeSearch(int value) {     /// поиск узла по ключу
     else if(value == node->key) {   /// нашли
         return node;
     } else {    /// не нашли и искать негде
-        cout << "non" << endl;
         return nullptr;
     }
 }
@@ -193,7 +191,7 @@ Node *Node::Delete_var_1() {    ///правый потомок узла - уда
             del_node->left_child = nullptr; /// отчистка памяти
             del_node->right_child = nullptr;
             delete(del_node);
-            this->left_child = sun;
+            this->right_child = sun;
         }
     }
     else if (del_node->right_child != nullptr) {
